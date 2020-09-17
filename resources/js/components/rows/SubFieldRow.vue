@@ -38,6 +38,8 @@
     import NumberSubField from '../sub-fields/NumberSubField.vue';
     import SelectSubField from '../sub-fields/SelectSubField.vue';
     import TextareaSubField from '../sub-fields/TextareaSubField.vue';
+    import DateSubField from '../sub-fields/DateSubField.vue';
+    import CurrencySubField from "../sub-fields/CurrencySubField";
 
     export default {
 
@@ -47,6 +49,8 @@
             NumberSubField,
             SelectSubField,
             TextareaSubField,
+            DateSubField,
+            CurrencySubField,
         },
 
         props: ['value', 'field', 'index'],
