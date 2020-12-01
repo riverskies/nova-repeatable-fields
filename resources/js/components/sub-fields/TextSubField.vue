@@ -1,7 +1,6 @@
 <template>
     <div>
         <input
-            :id="subField.name"
             :name="subField.name"
             type="text"
             class="w-full form-control form-input form-input-bordered"

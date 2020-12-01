@@ -15,19 +15,21 @@
                 <path d="M20.281 20.656c0 0.391-0.156 0.781-0.438 1.062l-2.125 2.125c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-4.594-4.594-4.594 4.594c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-2.125-2.125c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l4.594-4.594-4.594-4.594c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.594 4.594-4.594c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062s-0.156 0.781-0.438 1.062l-4.594 4.594 4.594 4.594c0.281 0.281 0.438 0.672 0.438 1.062z"></path>
             </svg>
         </button>
-        <div class="row-inputs flex-wrap" :class="formLayout">
+        <div class="row-inputs flex-wrap -mt-4" :class="formLayout">
             <h3 v-if="field.heading && field.display_stacked" class="mb-2">
                 {{ field.heading + " #" + (index + 1) }}
             </h3>
-            <component
-                v-for="(subField, index) in field.sub_fields"
-                :is="`${subField.type}-sub-field`"
-                :key="index"
-                :sub-field="subField"
-                v-model="value[subField.name]"
-                class="row-input"
-                :class="getInputLayout(subField)"
-            ></component>
+            <div v-for="(subField, index) in field.sub_fields" class="mt-4">
+              <span class="font-semibold" v-if="field.sub_labels">{{subField.label}}</span>
+              <component
+                  :is="`${subField.type}-sub-field`"
+                  :key="`${index}_${Math.random(1000)}`"
+                  :sub-field="subField"
+                  class="row-input mt-2"
+                  v-model="value[subField.name]"
+                  :class="getInputLayout(subField)"
+              ></component>
+            </div>
         </div>
     </div>
 </template>
@@ -40,6 +42,7 @@
     import TextareaSubField from '../sub-fields/TextareaSubField.vue';
     import DateSubField from '../sub-fields/DateSubField.vue';
     import CurrencySubField from "../sub-fields/CurrencySubField";
+    import TinymceSubField from "../sub-fields/TinymceSubField";
 
     export default {
 
@@ -51,6 +54,7 @@
             TextareaSubField,
             DateSubField,
             CurrencySubField,
+            TinymceSubField,
         },
 
         props: ['value', 'field', 'index'],

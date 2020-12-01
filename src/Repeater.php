@@ -57,6 +57,13 @@ class Repeater extends Field
         ]);
     }
 
+    public function showSubLabels()
+    {
+        return $this->withMeta([
+            'sub_labels' => true
+        ]);
+    }
+
     public function maximumRows($count)
     {
         return $this->withMeta([
