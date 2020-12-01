@@ -23,7 +23,7 @@
               <span class="font-semibold" v-if="field.sub_labels">{{subField.label}}</span>
               <component
                   :is="`${subField.type}-sub-field`"
-                  :key="`${index}_${Math.random(1000)}`"
+                  :key="index"
                   :sub-field="subField"
                   class="row-input mt-2"
                   v-model="value[subField.name]"

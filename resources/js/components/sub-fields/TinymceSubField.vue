@@ -26,7 +26,7 @@ export default {
   },
   methods:{
      changed(event){
-       this.$emit('input', this.localValue);
+       // this.$emit('input', this.localValue);
      }
   }
 }

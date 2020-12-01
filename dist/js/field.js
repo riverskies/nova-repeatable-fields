@@ -761,11 +761,10 @@ var render = function() {
                     _vm._v(_vm._s(subRow.label) + ":")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "block flex-1" }, [
-                    _c("strong", {
-                      domProps: { innerHTML: _vm._s(subRow.value.trim()) }
-                    })
-                  ])
+                  _c("div", {
+                    staticClass: "block flex-1 prose",
+                    domProps: { innerHTML: _vm._s(subRow.value.trim()) }
+                  })
                 ])
               }),
               0
@@ -38124,7 +38123,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
 
 
 
@@ -38140,7 +38138,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
   methods: {
     changed: function changed(event) {
-      this.$emit('input', this.localValue);
+      // this.$emit('input', this.localValue);
     }
   }
 });
@@ -38432,7 +38430,6 @@ var render = function() {
       plugins: _vm.subField.options.plugins,
       toolbar: _vm.subField.options.toolbar,
       placeholder: _vm.subField.placeholder,
-      id: _vm.subField.id,
       name: _vm.subField.name
     },
     on: { input: _vm.changed },
@@ -38548,7 +38545,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _c(subField.type + "-sub-field", {
-                key: index + "_" + Math.random(1000),
+                key: index,
                 tag: "component",
                 staticClass: "row-input mt-2",
                 class: _vm.getInputLayout(subField),
