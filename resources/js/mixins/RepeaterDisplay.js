@@ -30,7 +30,7 @@ export default{
         },
         rows() {
             return this.value.map(row => {
-                let keys = Object.keys(row);
+                let keys = this.field.sub_fields.map((field) => field.name);
 
                 return keys.map(key => {
                     let subField = this.field.sub_fields.find(field => field.name === key);
