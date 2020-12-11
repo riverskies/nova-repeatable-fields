@@ -44,6 +44,7 @@
     import DateSubField from '../sub-fields/DateSubField.vue';
     import CurrencySubField from "../sub-fields/CurrencySubField";
     import TinymceSubField from "../sub-fields/TinymceSubField";
+    import DocumentSubField from "../sub-fields/DocumentSubField";
 
     export default {
 
@@ -56,6 +57,7 @@
             DateSubField,
             CurrencySubField,
             TinymceSubField,
+            DocumentSubField,
         },
 
         props: ['value', 'field', 'index'],
